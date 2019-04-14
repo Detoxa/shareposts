@@ -52,15 +52,13 @@ class Users extends Controller
                 }
             }
             // Make sure errors are empty
-            if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
+            if (empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])) {
                 // Validated
                 die('SUCCESS');
             } else {
                 // Load view whit errors
-                $this->view('users/register' , $data);
-
+                $this->view('users/register', $data);
             };
-
         } else {
 
             // Init data
@@ -86,7 +84,39 @@ class Users extends Controller
         // Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
+
+
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            // Init data
+            $data = [
+                'email'                 => trim($_POST['email']),
+                'password'              => trim($_POST['password']),
+                'email_err'             => '',
+                'password_err'          => '',
+            ];
+
+            // Validate Email
+            if (empty($data['email'])) {
+                $data['email_err'] = 'Please enter email';
+            };
+
+            // Validate password
+            if (empty($data['password'])) {
+                $data['password_err'] = 'Please enter password';
+            };
+
+            // Make sure errors empty
+            if (empty($data['email_err']) && empty($data['password_err'])) {
+                // Validated
+                die('SUCCESS');
+            } else {
+                // Load view whit errors
+                $this->view('users/login', $data);
+            };
         } else {
+
             // Init data
             $data = [
                 'email'                 => '',

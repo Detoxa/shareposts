@@ -5,7 +5,7 @@
             <div class="card card-body bg-light mt-5">
                 <h2>Login</h2>
                 <p>Please fill in your credentials to log in</p>
-                <form action="<?php echo URLROOT;?>/users/register" method="posts">
+                <form action="<?php echo URLROOT;?>/users/login" method="post">
                     <div class="form-group">
                         <label for="email">Email: <sup>*</sup></label>
                         <input type="text" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_err'])) ? 'is-invalid' : '';?>" value="<?php echo $data['email']; ?>">
