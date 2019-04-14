@@ -1,15 +1,16 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+<?php flash('post_message'); ?>
 <div class="row">
     <div class="col-md-6">
         <h1>Post</h1>
     </div>
     <div class="col-md-6">
-        <a href="<?php echo URLROOT;?>/posts/add" class="btn btn-primary pull-right mb-2">
-        <i class="fas fa-pencil-alt mr-1"></i>Add Post
-    </a>
+        <a href="<?php echo URLROOT; ?>/posts/add" class="btn btn-primary pull-right mb-2">
+            <i class="fas fa-pencil-alt mr-1"></i>Add Post
+        </a>
     </div>
 </div>
-<?php foreach($data['posts'] as $post) : ?>
+<?php foreach ($data['posts'] as $post) : ?>
 
     <div class="card card-body mb-3">
         <h4 class="card-title"><?php echo $post->title; ?></h4>
@@ -17,7 +18,7 @@
             written by <?php echo $post->name; ?> on <?php echo $post->postCreated; ?>
         </div>
         <p class="card-text"><?php echo $post->body; ?></p>
-        <a href="<?php echo URLROOT;?>/posts/show/<?php echo $post->postId; ?>" class="btn btn-dark">More</a>
+        <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>" class="btn btn-dark">More</a>
     </div>
 
 <?php endforeach; ?>
