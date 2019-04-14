@@ -3,7 +3,7 @@
 /**
  * App Core Class
  * Create URL and loads core controller
- * URL FORMAT - /controller/metho/params
+ * URL FORMAT - /controller/method/params
  */
 
  class Core{
@@ -35,7 +35,7 @@
            if(method_exists($this->currentController, $url[1])){
                $this->currentMethod = $url[1];
 
-               // Unset 1 Indes
+               // Unset 1 Index
                unset($url[1]);
            }
        }
