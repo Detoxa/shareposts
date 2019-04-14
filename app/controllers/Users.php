@@ -185,7 +185,7 @@ class Users extends Controller
     public function isLoggedIn()
     {
         if (isset($_SESSION['user_id'])) {
-            return tru;
+            return true;
         } else {
             return false;
         }
