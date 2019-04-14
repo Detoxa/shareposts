@@ -1,3 +1,3 @@
-# Shareposts whit simple MVC framevork
+# Shareposts whit simple MVC framework
 
 ## This is for my learning
